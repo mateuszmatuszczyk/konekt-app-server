@@ -1,0 +1,22 @@
+{
+  "name": "konektnodejs",
+  "version": "1.0.0",
+  "description": "Node.js package for Konekt App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "gps-distance": "0.0.4",
+    "http": "0.0.0",
+    "mongoose": "^5.6.6",
+    "mysql": "^2.17.1",
+    "socket.io": "^2.2.0",
+    "yarn": "^1.17.3"
+  }
+}

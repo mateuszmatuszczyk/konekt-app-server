@@ -1,0 +1,67 @@
+PROCESS:
+            
+0) Setup the application folder structure: [F]config, [F]controllers, server.js with router in it  
+1) Register user -> check if email already used
+2) Login user -> check email && password against db
+3) Update user location
+4) Search for friends
+5) Send Konekt request
+6) Accept Konekt request
+7) Calculate the distance between two friends
+8) Validate Friend Connection (by aligning GPS of two users)
+9) Create a meeting
+10) Conclude a meeting and update Social Scores for both parties
+11) Add Special Event to a Meeting
+12) Complete Special Event and update Social Scores for both parties
+13) Create User Event
+14) Create Event_Attendee and start a meeting when user gets near the event [mySQL workbench, trigger]
+
+
+API ENDPOINTS:
+User:
+    *POST   + Register user     
+    *POST   + Login User
+    *GET    + Find user by id 
+    *PUT    + Update user location
+    *PUT    + Update user profile info 
+    *PUT    + Switch status between hidden/visible
+    *PUT    + Set status_msg 
+    *PUT    + Update Password
+    *DELETE + Remove user
+
+Connection:
+    *POST   + New Connection
+    *PUT    + Confirm connection request
+    *PUT    + Validate connection
+    *PUT    + Update Social Score
+    *GET    + Show all user connections
+    *PUT    + Update Visibility Radius
+    *DELETE + Remove connection (add extra query that removes the other user_connection)
+
+Meeting:
+    *POST   + New meeting
+    *PUT    + Add social event to a meeting
+    *PUT    + Conclude a meeting and calculate its duration 
+                + (update social score for user, friend and connection)
+    *GET    + Show past and current meetings
+    
+Special Event:
+    *GET    + Show all special events 
+    *GET    + Show specific special event
+
+
+Location:
+    *POST   + Add new location
+    *PUT    + Update location 
+    *GET    + Find distance between 2 locations
+
+Chat:
+    *POST   + Send message
+    *GET    + Show messages
+    
+______________________________________________________________________________________
+User Event:
+    *POST   - New user event
+    *POST   - Attend user_event -> creates a meeting between users
+    *GET    - Show all user_events of friends and mine
+    *PUT    - Update user_event
