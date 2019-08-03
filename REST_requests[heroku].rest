@@ -1,0 +1,134 @@
+### ROOT
+
+GET https://konekt-app.herokuapp.com/api/
+
+### REGISTER NEW USER
+POST https://konekt-app.herokuapp.com/api/users/register
+Content-Type: application/json
+
+{
+    "email":"alexdwada67@gmail.com",
+    "password":"123456"
+}
+
+### LOGIN User
+POST https://konekt-app.herokuapp.com/api/users/login
+Content-Type: application/json
+
+{
+    "email":"alex67@gmail.com",
+    "password":"blablabla"
+}
+
+### GET USER BY USER_ID
+GET https://konekt-app.herokuapp.com/api/users/2
+Content-Type: application/json
+
+### SEARCH FOR USER
+GET https://konekt-app.herokuapp.com/api/users/search?q=alex
+
+### Update User Location
+PUT https://konekt-app.herokuapp.com/api/users/24/location
+Content-Type: application/json
+# 53.5216312
+# -6.0798284
+
+{
+    "latitude":53.527302,
+    "longitude":-6.095321
+}
+### Update User Profile -> usernam and/or age
+PUT https://konekt-app.herokuapp.com/api/users/24/profile
+Content-Type: application/json
+
+{
+    "username":"alex",
+    "age":21
+}
+
+### Update User Password
+PUT https://konekt-app.herokuapp.com/api/users/24/profile/password
+Content-Type: application/json
+
+{
+    "oldpass":"bblabla",
+    "newpass":"blablabla"
+}
+
+### Update User Status Message
+PUT https://konekt-app.herokuapp.com/api/users/24/status
+Content-Type: application/json
+
+{
+    "statusmsg":"Lunch at 4 anyone?"
+}
+
+### Change user's visibility status
+PUT https://konekt-app.herokuapp.com/api/users/24/visibility
+
+
+### Delete user
+DELETE https://konekt-app.herokuapp.com/api/users/22
+
+
+
+### GET Distance [metres] between 2 Locations
+GET https://konekt-app.herokuapp.com/api/checkdistance?lid1=20&lid2=3
+
+### Show User Meetings
+GET https://konekt-app.herokuapp.com/api/users/24/meetings
+
+### Show User Connections
+GET https://konekt-app.herokuapp.com/api/users/2/connections
+
+### CREATE New Connection/ Send Connection Request
+POST https://konekt-app.herokuapp.com/api/users/24/newconnection
+Content-Type: application/json
+
+{
+    "friend_id":3,
+    "discovery_radius":500
+}
+
+### ACCEPT Connection Request
+POST https://konekt-app.herokuapp.com/api/users/3/acceptconnection
+Content-Type: application/json
+
+{
+    "friend_id":24,
+    "discovery_radius":300
+}
+
+### Validate User Connection
+PUT https://konekt-app.herokuapp.com/api/connections/37/validate
+
+### Update connection visibility radius
+PUT https://konekt-app.herokuapp.com/api/connections/37/visibility
+Content-Type: application/json
+
+{
+    "radius":1000
+}
+
+### Remove user connection
+DELETE https://konekt-app.herokuapp.com/api/connections/3/
+
+
+### CREATE new meeting 
+POST https://konekt-app.herokuapp.com/api/connections/37/meeting?lid=20
+Content-Type: application/json
+
+# 1 == connection_id
+# lid == location of the user  
+
+### Finish meeting
+PUT https://konekt-app.herokuapp.com/api/meetings/20/end
+
+### Add special event to a meeting
+PUT https://konekt-app.herokuapp.com/api/meetings/21/specialevent?sid=2
+
+### Show Current Special Events
+GET https://konekt-app.herokuapp.com/api/specialevents
+
+### GET Special Event by :spid (special_event_id)
+GET https://konekt-app.herokuapp.com/api/specialevents/1
