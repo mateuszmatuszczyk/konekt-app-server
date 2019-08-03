@@ -1,7 +1,7 @@
 ///// ///// IMPORTS ///// /////
 ///// LIBRARIES ///// 
 const mysql = require('mysql');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcryptjs');
 ///// CUSTOM FILES
 // Database configuration file
 const dbconfig = require("../config/dbconnection");
