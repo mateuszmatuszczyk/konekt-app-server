@@ -37,7 +37,7 @@ exports.registerUser = async (req, res) => {
         }
         console.log("result not found");
         const sql =
-            "INSERT INTO `konektdb`.`user` (`email`, `password`) VALUES (?,?)";
+            "INSERT INTO `user` (`email`, `password`) VALUES (?,?)";
 
         connection.query(sql, [email, hashed_password], function (err, result) {
             if (err) { res.status(500).send(err) }
@@ -87,8 +87,8 @@ exports.getUser = async (req, res) => {
     const uid = req.params.uid;
     console.log("User ID: " + uid)
     const sql =
-        `SELECT * FROM konektdb.user
-    JOIN konektdb.location
+        `SELECT * FROM user
+    JOIN location
     ON user.location_id = location.locationID
     WHERE userID = ?`
 
