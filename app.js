@@ -125,12 +125,7 @@ router.route("/checkdistance/").get(user_controller.getDistance)
 
 
 //start the server on the defined port -> 3000
-const port = 3000
+const port = process.env.PORT;
 var app_server = http_server.listen(port, () => {
     console.log('Server started on port ' + app_server.address().port);
 })
-
-
-
-
-
