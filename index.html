@@ -55,13 +55,13 @@
         }
 
         function getMessages() {
-            $.get('konekt-app.herokuapp.com/api/users/1/messages', (data) => {
+            $.get('https://konekt-app.herokuapp.com/api/users/1/messages', (data) => {
                 data.forEach(addMessages);
             })
         }
 
         function sendMessage(message) {
-            $.post('konekt-app.herokuapp.com/api/users/1/messages', message)
+            $.post('https://konekt-app.herokuapp.com/api/users/1/messages', message)
         }
 
     </script>

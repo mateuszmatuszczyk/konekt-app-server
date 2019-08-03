@@ -17,8 +17,8 @@ exports.registerUser = async (req, res) => {
     const body = req.body;
     const email = body.email;
     const password = body.password;
-    const hashed_password = await bcrypt.hash(password, 10)
-
+    // const hashed_password = await bcrypt.hash(password, 10)
+    var hashed_password = bcrypt.hashSync(password,10);
     console.log("email: " + email + "\npassword: " + password + "\nhashed_password: " + hashed_password)
     const sql = 'SELECT * FROM user WHERE email = ?';
 
@@ -408,7 +408,7 @@ exports.showAllMeetings = async (req, res) => {
     const uid = req.params.uid
 
     const sql =
-        `SELECT * FROM konektdb.meeting as m
+        `SELECT * FROM meeting as m
     JOIN user_connection as uc
     ON m.user_connection_id = uc.connection_id
     WHERE uc.user_id = ?;`
@@ -518,7 +518,7 @@ exports.addSpecialEventToMeeting = async (req, res) => {
 }
 
 exports.showCurrentSpecialEvents = async (req, res) => {
-    sql = `SELECT * FROM konektdb.special_event WHERE end_date > current_time();`
+    sql = `SELECT * FROM special_event WHERE end_date > current_time();`
     connection.query(sql, (err, result) => {
         res.status(200).send(result)
     })
@@ -526,7 +526,7 @@ exports.showCurrentSpecialEvents = async (req, res) => {
 
 exports.showSpecialEvent = async (req, res) => {
     const spid = req.params.spid
-    sql = `SELECT * FROM konektdb.special_event WHERE special_event_id = ?;`
+    sql = `SELECT * FROM special_event WHERE special_event_id = ?;`
     connection.query(sql, spid, (err, result) => {
         if (err) { return res.status(500).send(err) }
         if (!result[0]) { return res.status(404).send("Event not found.") }

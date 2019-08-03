@@ -1,9 +1,9 @@
 ### ROOT
 
-GET http://localhost:3000/api
+GET https://konekt-app.herokuapp.com/api/
 
 ### REGISTER NEW USER
-POST http://localhost:3000/api/users/register
+POST https://konekt-app.herokuapp.com/api/users/register
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### GET USER BY USER_ID
-GET http://localhost:3000/api/users/24
+GET https://konekt-app.herokuapp.com/api/users/2
 Content-Type: application/json
 
 ### SEARCH FOR USER

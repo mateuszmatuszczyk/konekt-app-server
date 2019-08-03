@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "global": "^4.4.0",
     "gps-distance": "0.0.4",
