@@ -18,7 +18,7 @@ exports.registerUser = async (req, res) => {
     const email = body.email;
     const password = body.password;
     // const hashed_password = await bcrypt.hash(password, 10)
-    var hashed_password = bcrypt.hashSync(password,10);
+    const hashed_password = bcrypt.hashSync(password,10);
     console.log("email: " + email + "\npassword: " + password + "\nhashed_password: " + hashed_password)
     const sql = 'SELECT * FROM user WHERE email = ?';
 
@@ -184,7 +184,7 @@ exports.updateUserPassword = async (req, res) => {
     const user_id = req.params.uid
     const old_password = req.body.oldpass
     const new_password = req.body.newpass
-    const hashed_password = await bcrypt.hash(new_password, 10)
+    const hashed_password = bcrypt.hashSync(new_password,10);
 
     const sql =
         'SELECT * FROM user WHERE userID = ?';
