@@ -35,14 +35,13 @@ exports.registerUser = async (req, res) => {
             res.status(409).send({ error: "This e-mail address is already registered." });
             return
         }
-        console.log("result not found");
         const sql =
             "INSERT INTO `user` (`email`, `password`) VALUES (?,?)";
 
         connection.query(sql, [email, hashed_password], function (err, result) {
             if (err) { res.status(500).send(err) }
-
-            res.status(201).send(result);
+            console.log("User successfully created.")
+            res.status(201).send();
         })
         console.log("Email: " + email + " \nPassword: " + password);
     })
@@ -52,7 +51,7 @@ exports.loginUser = async (req, res) => {
     const user_email = req.body.email;
 
     if (!helper.validateEmail(user_email)) {
-        res.status(400).send({ error: "This e-mail is invalid." });
+        res.status(400).send("This e-mail is invalid.");
         return
     }
 
@@ -65,16 +64,16 @@ exports.loginUser = async (req, res) => {
         if (err) { res.status(500).send(err) }
         const user = result[0]
         if (user == null) {
-            return res.status(404).send("User not found")
+            return res.status(404).send("Incorrect Credentials.")
         }
         try {
             if (await bcrypt.compare(req.body.password, user.password)) {
                 console.log("SUCCESS")
-                return res.status(200).send('Successfully logged in \nUser ID =' + user.userID)
+                return res.status(200).send(""+user.userID)
             }
             else {
                 console.log("FAIL")
-                return res.status(404).send('user not found')
+                return res.status(404).send('Incorrect Credentials.')
             }
         }
         catch (err) {
@@ -121,7 +120,7 @@ exports.updateUserLocation = async (req, res) => {
                     `UPDATE user SET location_id = last_insert_id() WHERE (userID = ?);`
                 connection.query(sql, uid, (err, result) => {
                     updateConnectionDistance(uid)
-                    res.status(200).send(result)
+                    res.status(200).send()
                 })
             })
 
@@ -135,7 +134,7 @@ exports.updateUserLocation = async (req, res) => {
             connection.query(sql, [latitude, longitude, datetime, user.location_id], (err, result) => {
                 if (err) { res.status(500).send(err) }
                 updateConnectionDistance(uid)
-                res.status(200).send(result)
+                res.status(200).send()
             })
         }
     })
