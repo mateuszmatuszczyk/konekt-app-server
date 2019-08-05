@@ -63,9 +63,9 @@ router.route('/users/:uid/messages').post((req, res) => {
 })
 
 // USER CONTROLLER ROUTES 
-router.route("/").get((req, res) => {
-    console.log("Accessing ROOT"); res.send("Hello, this is root");
-});
+// router.route("/").get((req, res) => {
+//     console.log("Accessing ROOT"); res.send("Hello, this is root");
+// });
 
 // register new user
 router.route("/users/register").post(user_controller.registerUser)
