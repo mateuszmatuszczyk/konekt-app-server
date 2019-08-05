@@ -79,7 +79,7 @@ GET https://konekt-app.herokuapp.com/api/checkdistance?lid1=20&lid2=3
 GET https://konekt-app.herokuapp.com/api/users/24/meetings
 
 ### Show User Connections
-GET https://konekt-app.herokuapp.com/api/users/2/connections
+GET https://konekt-app.herokuapp.com/api/users/1/connections
 
 ### CREATE New Connection/ Send Connection Request
 POST https://konekt-app.herokuapp.com/api/users/24/newconnection

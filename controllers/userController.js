@@ -422,7 +422,10 @@ exports.showUserConnections = async (req, res) => {
     const uid = req.params.uid
     console.log("User" + uid + " connections list: ")
     const sql =
-        `SELECT * FROM user_connection WHERE user_id = ?;`
+        `SELECT uc.connection_id, uc.friend_id, u.username , uc.distance, uc.social_score, uc.validated, uc.accepted, uc.visibility_radius FROM user_connection as uc
+        JOIN user as u 
+        ON uc.friend_id = u.userID
+        WHERE user_id = ?;`
     connection.query(sql, uid, (err, result) => {
         if (err) { res.status(500).send(err) }
         const query_result = result
