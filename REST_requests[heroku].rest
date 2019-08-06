@@ -38,12 +38,12 @@ Content-Type: application/json
     "longitude":-6.095321
 }
 ### Update User Profile -> usernam and/or age
-PUT https://konekt-app.herokuapp.com/api/users/24/profile
+PUT https://konekt-app.herokuapp.com/api/users/71/profile
 Content-Type: application/json
 
 {
-    "username":"alex",
-    "age":21
+    "username":"spacecowboy",
+    "age":25
 }
 
 ### Update User Password
@@ -56,11 +56,11 @@ Content-Type: application/json
 }
 
 ### Update User Status Message
-PUT https://konekt-app.herokuapp.com/api/users/24/status
+PUT https://konekt-app.herokuapp.com/api/users/71/status
 Content-Type: application/json
 
 {
-    "statusmsg":"Lunch at 4 anyone?"
+    "statusmsg":"Pints tonight?"
 }
 
 ### Change user's visibility status
@@ -79,19 +79,19 @@ GET https://konekt-app.herokuapp.com/api/checkdistance?lid1=20&lid2=3
 GET https://konekt-app.herokuapp.com/api/users/24/meetings
 
 ### Show User Connections
-GET https://konekt-app.herokuapp.com/api/users/1/connections
+GET https://konekt-app.herokuapp.com/api/users/71/connections
 
 ### CREATE New Connection/ Send Connection Request
 POST https://konekt-app.herokuapp.com/api/users/24/newconnection
 Content-Type: application/json
 
 {
-    "friend_id":3,
+    "friend_id":71,
     "discovery_radius":500
 }
 
 ### ACCEPT Connection Request
-POST https://konekt-app.herokuapp.com/api/users/3/acceptconnection
+POST https://konekt-app.herokuapp.com/api/users/71/acceptconnection
 Content-Type: application/json
 
 {

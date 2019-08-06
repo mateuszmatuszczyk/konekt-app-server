@@ -10,7 +10,7 @@ exports.validateEmail = (email) => {
 exports.checkDistance = (l1_lat, l1_long, l2_lat, l2_long) =>{
     const distance = gps_distance(l1_lat, l1_long, l2_lat, l2_long)
     console.log("Distance between {"+l1_lat+","+l1_long+"} and {"+l2_lat+","+l2_long+"} is "+distance)
-    return distance
+    return distance 
 }
 
 exports.calculateTime = (start_time, end_time)=>{
