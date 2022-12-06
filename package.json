@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "global": "^4.4.0",
     "gps-distance": "0.0.4",
     "http": "0.0.0",
